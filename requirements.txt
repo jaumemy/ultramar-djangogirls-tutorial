@@ -1,2 +1,4 @@
 Django~=3.2.10
 black==22.1.0
+django-tables2==2.4.1
+tablib[xls]
