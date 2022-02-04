@@ -21,7 +21,7 @@ class PostTable(tables.Table):
 
     class Meta:
         model = Post
-        template_name = "django_tables2/bootstrap-responsive.html"
+        template_name = "django_tables2/bootstrap.html"
         fields = (
             "id",
             "author",
