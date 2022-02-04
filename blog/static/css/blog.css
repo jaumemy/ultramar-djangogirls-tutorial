@@ -12,6 +12,8 @@
 
 .content {
   margin-left: 40px;
+  margin-right: 40px;
+  width: 100%;
 }
 
 h1, h2, h3, h4 {
@@ -43,4 +45,9 @@ h1, h2, h3, h4 {
 
 .post h2 a, .post h2 a:visited {
   color: #000000;
+}
+
+.alert-message {
+ color: red;
+ font-style: italic;
 }

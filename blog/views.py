@@ -10,6 +10,8 @@ from django_tables2.export.views import ExportMixin
 from .models import Post
 from .tables import PostTable
 
+from .permissions import OwnershipRequiredMixin
+
 
 # Create your views here.
 
@@ -18,13 +20,11 @@ class PostListView(ExportMixin, SingleTableView):
     model = Post
     template_name = "blog/post_list.html"
     table_class = PostTable
-    table_pagination = {"per_page": 10}
+    table_pagination = {"per_page": 15}
     export_formats = ["csv", "json", "xls"]
 
     def get_queryset(self):
-        posts = Post.objects.filter(published_date__lte=timezone.now()).order_by(
-            "published_date"
-        )
+        posts = Post.objects.order_by("id")
         return posts
 
 
@@ -45,7 +45,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return reverse_lazy("post_detail", kwargs={"pk": pk})
 
 
-class PostUpdateView(LoginRequiredMixin, UpdateView):
+class PostUpdateView(LoginRequiredMixin, OwnershipRequiredMixin, UpdateView):
     model = Post
     fields = ["title", "text"]
 
@@ -54,6 +54,6 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
         return reverse_lazy("post_detail", kwargs={"pk": pk})
 
 
-class PostDeleteView(LoginRequiredMixin, DeleteView):
+class PostDeleteView(LoginRequiredMixin, OwnershipRequiredMixin, DeleteView):
     model = Post
     success_url = reverse_lazy("post_list")

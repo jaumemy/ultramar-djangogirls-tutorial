@@ -2,3 +2,5 @@ Django~=3.2.10
 black==22.1.0
 django-tables2==2.4.1
 tablib[xls]
+django-debug-toolbar==3.2.4
+ipdb==0.13.9
