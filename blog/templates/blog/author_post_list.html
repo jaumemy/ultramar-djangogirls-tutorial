@@ -6,7 +6,7 @@
 
 <div class="download">
 
-  <h1>Download all posts</h1>
+  <h1>Download {{author}}'s posts</h1>
 
   {% for format in view.export_formats %}
   <a href="{% export_url format %}" class="btn btn-default">
@@ -20,7 +20,7 @@
 
   <br>
   <br>
-  <h1>Browse all posts</h1>
+  <h1>Browse {{author}}'s posts</h1>
 
   {% render_table table %}
 

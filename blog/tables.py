@@ -28,7 +28,20 @@ class PostTable(tables.Table):
             "title",
             "text",
             "created_date",
-            "published_date",
+            "last_updated_date",
+            "options",
+            "detail",
+        )
+
+
+class AuthorPostTable(PostTable):
+    class Meta(PostTable.Meta):
+        fields = (
+            "id",
+            "title",
+            "text",
+            "created_date",
+            "last_updated_date",
             "options",
             "detail",
         )

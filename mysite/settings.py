@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django_tables2",
     "tablib",
     "debug_toolbar",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [

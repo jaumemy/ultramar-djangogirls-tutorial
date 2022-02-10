@@ -13,7 +13,14 @@
   <a class="btn btn-default" href="{% url 'post_delete' pk=post.pk %}"><span
       class="glyphicon glyphicon-trash"></span></a>
   {% endif %}
-  <h2>{{ post.title }}</h2>
+  <h2>{{ post.title }}</h2> <p class="author"> By {{post.author}}</p>
   <p>{{ post.text|linebreaksbr }}</p>
+  <br>
+  <h4>Events:</h4>
+  <ol>
+    {% for post_update_event in post_update_events %}
+      <li>  Updated by {{post_update_event.user}} on {{ post_update_event.date|date:'M.d.Y' }} at {{ post_update_event.date|date:'H:i' }} </li>
+    {% endfor %}
+  </ol>
 </div>
 {% endblock %}

@@ -16,4 +16,4 @@ class OwnershipRequiredMixin(object):
             previous_page = request.META.get("HTTP_REFERER", "/")
             return redirect(previous_page)
 
-        return super(OwnershipRequiredMixin, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
